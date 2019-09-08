@@ -41,4 +41,5 @@ import * as Radio from 'react-native-audio-stream'
 
 const url = 'http://example.com/audio/index.m3u8'
 await Radio.play(url)
+await Radio.pause()
 ```

@@ -1,13 +1,13 @@
 #import <React/RCTUtils.h>
 #import "React/RCTLog.h"
-#import <MediaPlayer/MediaPlayer.h>
+#import <AVKit/AVKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import <sys/socket.h>
 #import <netinet/in.h>
 #import "RNAudioStream.h"
 
 @implementation RNAudioStream {
-    MPMoviePlayerController *_streamPlayer;
+    AVPlayer *_streamPlayer;
 }
 
 - (dispatch_queue_t)methodQueue {
@@ -25,7 +25,7 @@ RCT_EXPORT_METHOD(play: (NSString *) urlString
     if (url && url.scheme && url.host) {
         [UIApplication sharedApplication].idleTimerDisabled = YES;
 
-        _streamPlayer = [[MPMoviePlayerController alloc] initWithContentURL: url];
+        _streamPlayer = [AVPlayer playerWithURL: url];
         [_streamPlayer play];
 
         resolve(@true);
