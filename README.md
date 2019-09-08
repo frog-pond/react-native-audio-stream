@@ -37,8 +37,8 @@
 ## Usage
 
 ```javascript
-import RNAudioStream from 'react-native-audio-stream'
+import * as Radio from 'react-native-audio-stream'
 
 const url = 'http://example.com/audio/index.m3u8'
-RNAudioStream.play()
+await Radio.play(url)
 ```
